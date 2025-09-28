@@ -3,7 +3,14 @@
 ## SecurityEngineering - Week4 - Task3
 
 ### Subtask 1: Intercepting
-The screenshots needed for the subtask 1 can be found in the Subtask1 folder inside the images folder.
+
+Last GET and POST requests with timestamps and visible ports:
+
+![POST and GET](Images/Subtask1/lastPostandGet.png)
+
+Edited POST request after interception, you can see how the User-Agent is edited as 'Beatrice-Dishwasher'.
+
+![Edited POST](Images/Subtask1/UserAgentEdited.png)
 
 ### Subtask 2: Repeater
 
