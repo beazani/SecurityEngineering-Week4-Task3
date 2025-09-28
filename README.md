@@ -1,3 +1,5 @@
+<div align="justify">
+
 ## SecurityEngineering - Week4 - Task3
 
 ### Subtask 1: Intercepting
@@ -46,3 +48,5 @@ If an attempt fails, this message can be found in the response raw "Username and
 I know since I used these credentials to log in, that the admin + password combination works, but I discovered that the combination gordonb + abc123 also produced a successful response. Tho understand why, I checked the DVWA files that are in the app’s user data and found the gordonb entry. In practice, the database seed contains a record for user gordonb and stores the password as MD5('abc123'). That means the app already has gordonb in its data, and it checks logins by hashing whatever password you type and comparing that hash to the stored value. So when the attack submitted abc123, the server computed MD5('abc123'), found it matched the stored hash, and logged the account in. So, gordonb is a preloaded account in the DB, and abc123 is the matching password and that is why that pair authenticated successfully.
 
 ![Terminal check](Images/Subtask3/terminalCheck.png)
+
+</div>
