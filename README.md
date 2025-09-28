@@ -49,4 +49,9 @@ I know since I used these credentials to log in, that the admin + password combi
 
 ![Terminal check](Images/Subtask3/terminalGordon.png)
 
+
+### Subtask 4: Decoder
+
+![Name decoder](Images/Subtask4/decoding.png)
+
 </div>
