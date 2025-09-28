@@ -56,7 +56,7 @@ I know since I used these credentials to log in, that the admin + password combi
 
 ### Subtask 5: thc-hydra
 
-For this subtask I used thc-hydra (via its Docker image) to automate brute-force attacks against DVWA’s Brute Force page. First I verifyied that hydra can recover the short password cc that I previously set for the admin account, and then change the admin password to a four-letter lowercase word that starts with b and have hydra discover it again.<br><br>
+For this subtask I used thc-hydra (via its Docker image) to automate brute-force attacks against DVWA’s Brute Force page. First I verifyied that hydra can recover the short password cc that I previously set for the admin account, and then change the admin password to a four-letter lowercase word that starts with b and have hydra discover it again.
 
 For the 2 letter password 'cc', I ran the following command:
 
@@ -68,7 +68,7 @@ The start and end time were:
 
 ![Short guess](Images/Subtask5/shortPassword.png)
 
-So the time taken to guess the short passward was 4 seconds.<br><br>
+So the time taken to guess the short passward was 4 seconds.
 
 For the 4 letter password I chose 'blop', and I ran the command by modifying the hydra command -x range, MIN=4, MAX=4 starting from first letter a. 
 
@@ -80,7 +80,7 @@ The start and end time were:
 
 ![Long guess](Images/Subtask5/longPassword.png)
 
-So the time taken to guess the short passward was 37 minutes and 37 seconds.<br><br>
+So the time taken to guess the short passward was 37 minutes and 37 seconds.
 
 This subtask demonstrates how trivial it is to automate credential discovery against insecure endpoints. DVWA intentionally uses weak mechanisms (predictable sessions, seeded users, and no lockout), which allowed hydra to quickly find short passwords.
 That huge increase in candidate count alone explains most of the slowdown.<br>
