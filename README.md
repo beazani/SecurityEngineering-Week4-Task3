@@ -23,3 +23,26 @@ In my two repeats example, in DVWA I saw two cookies:
 ![Second repeat](Images/Subtask2/secondRepeat.png)
 
 Even though epoch timestamps are convenient, they are very predictable since they increase by exactly one every second. Using them directly as session IDs is not secure at all, since an attacker could guess session cookies simply by knowing the approximate server time.
+
+### Subtask 3: Intruder
+
+I ran a Cluster Bomb attack (using 24 combinations) against the intruder with the provided payload lists and low security level as indicated. When I inspected the results I found that only two of the 24 credential combinations succeeded: admin + password and gordonb + abc123.
+
+![User list used](Images/Subtask3/userList.png)
+
+![Password list used](Images/Subtask3/passList.png)
+
+I identified the successful attempt by examining the raw response bodies of each different combination, and noticed that the successful ones had a bigger length: success had around 4740-4745 of length and unsuccess had 4702-4703. The examination of the responses had to be done since both success and failure responses returned HTTP 200 OK as status code.
+
+![Attack result](Images/Subtask3/attackList.png)
+
+If an attempt succeds, this message can be found in the raw response: "Welcome to the password protected area admin".
+![Check for success](Images/Subtask3/succesfullAttempt.png)
+
+If an attempt fails, this message can be found in the response raw "Username and/or password incorrect".
+
+![Check for unsuccess](Images/Subtask3/nonSuccesfullAttempt.png)
+
+I know since I used these credentials to log in, that the admin + password combination works, but I discovered that the combination gordonb + abc123 also produced a successful response. Tho understand why, I checked the DVWA files that are in the app’s user data and found the gordonb entry. In practice, the database seed contains a record for user gordonb and stores the password as MD5('abc123'). That means the app already has gordonb in its data, and it checks logins by hashing whatever password you type and comparing that hash to the stored value. So when the attack submitted abc123, the server computed MD5('abc123'), found it matched the stored hash, and logged the account in. So, gordonb is a preloaded account in the DB, and abc123 is the matching password and that is why that pair authenticated successfully.
+
+![Terminal check](Images/Subtask3/terminalCheck.png)
