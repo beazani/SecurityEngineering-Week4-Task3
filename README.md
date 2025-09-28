@@ -54,4 +54,39 @@ I know since I used these credentials to log in, that the admin + password combi
 
 ![Name decoder](Images/Subtask4/decoding.png)
 
+### Subtask 5: thc-hydra
+
+For this subtask I used thc-hydra (via its Docker image) to automate brute-force attacks against DVWA’s Brute Force page. First I verifyied that hydra can recover the short password cc that I previously set for the admin account, and then change the admin password to a four-letter lowercase word that starts with b and have hydra discover it again.<br><br>
+
+For the 2 letter password 'cc', I ran the following command:
+
+![Short command](Images/Subtask5/shortCommand.png)
+
+The start and end time were:
+- start time: Sun Sep 28 15:39:32 UTC 2025
+- end time: 2025-09-28 15:39:36
+
+![Short guess](Images/Subtask5/shortPassword.png)
+
+So the time taken to guess the short passward was 4 seconds.<br><br>
+
+For the 4 letter password I chose 'blop', and I ran the command by modifying the hydra command -x range, MIN=4, MAX=4 starting from first letter a. 
+
+![Long command](Images/Subtask5/longCommand.png)
+
+The start and end time were:
+- start time: Sun Sep 28 14:53:11 UTC 2025
+- end time: 2025-09-28 15:37:37
+
+![Long guess](Images/Subtask5/longPassword.png)
+
+So the time taken to guess the short passward was 37 minutes and 37 seconds.<br><br>
+
+This subtask demonstrates how trivial it is to automate credential discovery against insecure endpoints. DVWA intentionally uses weak mechanisms (predictable sessions, seeded users, and no lockout), which allowed hydra to quickly find short passwords.
+That huge increase in candidate count alone explains most of the slowdown.<br>
+The short password was recovered almost instantly because only a few hundred candidates needed testing, whereas the four letter search required tens of thousands of tries and therefore took longer. The runtime difference is driven first by combinatorics (many more candidate passwords) and second by practical per‑request costs.
+From a security perspective this exercise underlines two important but simple points:
+- even modest increases in password length or entropy make brute‑force far more expensive;
+- networked applications must add defensive layers, such as rate limiting, account lockout, multi‑factor authentication to turn an attack that is feasible in a lab into one that is impractical in the real world.
+
 </div>
