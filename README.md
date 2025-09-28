@@ -39,7 +39,7 @@ I identified the successful attempt by examining the raw response bodies of each
 ![Attack result](Images/Subtask3/attackList.png)
 
 If an attempt succeds, this message can be found in the raw response: "Welcome to the password protected area admin".
-![Check for success](Images/Subtask3/succesfullAttempt.png)
+![Check for success](Images/Subtask3/succesfullAtt.png)
 
 If an attempt fails, this message can be found in the response raw "Username and/or password incorrect".
 
