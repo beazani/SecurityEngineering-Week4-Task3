@@ -10,7 +10,7 @@ Last GET and POST requests with timestamps and visible ports:
 
 Edited POST request after interception, you can see how the User-Agent is edited as 'Beatrice-Dishwasher'.
 
-![Edited POST](Images/Subtask1/UserAgentEdited.png)
+![Edited POST](Images/Subtask1/UserAgentEdited2.png)
 
 ### Subtask 2: Repeater
 
