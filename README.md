@@ -19,7 +19,7 @@ First I went to the DVWA Security Tab and raised the security level from Low to 
 ![Vulnerability POST](Images/Subtask2/vulnerabilityPost.png)
 
 When clicking Generate on the Weak Session IDs page, the server sets a cookie named dvwaSession with a numeric value. The application generates dvwaSession by using the current Unix timestamp as the session identifier.<br>
-The Unix epoch treats time as a single running count of seconds measured from a fixed origin, which is 00:00:00 UTC on 1 January 1970. The cookie is how many whole seconds have elapsed since that origin, this value is the epoch time (or Unix timestamp).<br><br>
+The Unix epoch treats time as a single running count of seconds measured from a fixed origin, which is 00:00:00 UTC on 1 January 1970. The cookie is how many whole seconds have elapsed since that origin, this value is the epoch time (or Unix timestamp).
 
 In my two repeats example, in DVWA I saw two cookies:
 
